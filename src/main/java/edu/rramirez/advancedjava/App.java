@@ -1,4 +1,4 @@
-package edu.rramirez.advancejava;
+package edu.rramirez.advancedjava;
 
 /**
  * Hello world!
