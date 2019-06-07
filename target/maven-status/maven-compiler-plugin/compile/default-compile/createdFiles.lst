@@ -1,1 +1,4 @@
-edu\rramirez\advancedjava\App.class
+edu\rramirez\advancedjava\StockServiceFactory.class
+edu\rramirez\advancedjava\StockService.class
+edu\rramirez\advancedjava\StockQuote.class
+edu\rramirez\advancedjava\BasicStockService.class
