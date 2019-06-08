@@ -3,6 +3,10 @@ package edu.rramirez.advancedjava;
 import org.junit.Test;
 import org.mockito.Mockito;
 
+import edu.rramirez.advancedjava.model.StockQuote;
+import edu.rramirez.advancedjava.stockservice.BasicStockService;
+import edu.rramirez.advancedjava.stockservice.StockService;
+
 import java.math.BigDecimal;
 
 import static org.junit.Assert.assertTrue;
