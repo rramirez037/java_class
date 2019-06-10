@@ -4,45 +4,58 @@ import org.junit.Test;
 import org.mockito.Mockito;
 
 import edu.rramirez.advancedjava.model.StockQuote;
-import edu.rramirez.advancedjava.stockservice.BasicStockService;
 import edu.rramirez.advancedjava.stockservice.StockService;
+import edu.rramirez.advancedjava.stockservice.StockServiceFactory;
 
 import java.math.BigDecimal;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Matchers.any;
-import static org.mockito.Mockito.when;
 
 
 public class BasicStockServiceTest {
 
 
-    /**
+	/**
      * This methos verifies the current stock price of a given stock symbol
      */
     @Test
-    public void getStockPriceTest() {
+    public void stockQuoteTest() {
 
         /* we want to 'mock' the external dependency which is the   StockService
          * so that we can test just the BasicStockService class.
          */
-       StockService stockServiceMock = Mockito.mock(StockService.class);
+       StockService stockServiceFactory = StockServiceFactory.getInstance();
 
         // next create the data we expect the service to return
         String stockSymbol = "APPL";
         BigDecimal expectedPrice = new BigDecimal(200);
+        Calendar from = Calendar.getInstance();
+        Calendar until = Calendar.getInstance();
+        from.add( Calendar.DAY_OF_YEAR, -20);
 
-        // tell the mock service to return the data the getQuote() method is called with a specific symbol
-		when(stockServiceMock.getQuote(any(String.class))).thenReturn(new StockQuote(stockSymbol, expectedPrice));
+        
+        List<StockQuote> stockQuote = stockServiceFactory.getQuote(stockSymbol, from, until);
+        
+        assertTrue("There should be 21 days", stockQuote.size() == 21);
+        assertTrue("Stock symbol equal APPL", stockSymbol.contentEquals("APPL"));
+        
 
-        // now create the BasicStockService instance to test
-        BasicStockService basicStockService = new BasicStockService(stockServiceMock);
-
-        // now execute the method we want to test
-        BigDecimal stockPriceResult = basicStockService.getStockPrice(stockSymbol, expectedPrice).getStockPrice();
-
-        // now verify that it returned the expected results.
-        assertTrue("stockPriceResult should be equal to expectedPrice", stockPriceResult == expectedPrice);
-
+    }
+    
+    @Test (expected = NullPointerException.class)
+    public void testMainNegative() {
+    	
+    	StockQuoteApp.main(null);
+    }
+    
+    @Test 
+    public void testMainPositive() {
+    	
+    	String[] arguments = {"APPL", "02/20/2019", "02/25/2019"};
+    	StockQuoteApp.main( arguments );
+    	
     }
 }
