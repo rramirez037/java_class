@@ -1,6 +1,9 @@
 package edu.rramirez.advancedjava.model;
 
 import java.util.Date;
+
+import org.apache.http.annotation.Immutable;
+
 import java.math.BigDecimal;
 
 /**
@@ -9,6 +12,7 @@ import java.math.BigDecimal;
  *
  * @author Ramon Ramirez
  */
+@Immutable 
 public class StockQuote {
 
 	private String stockSymbol;
