@@ -46,6 +46,13 @@ public class StockQuote extends StockData {
     public String getSymbol() {
         return symbol;
     }
+    
+    /**
+     * @return the stock price
+     */
+    public BigDecimal getStockPrice() {
+    	return price;
+    }
 
     @Override
     public String toString() {
