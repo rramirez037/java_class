@@ -1,4 +1,4 @@
-package com.origamisoftware.teach.advanced.model;
+package edu.rramirez.advancedjava.model;
 
 import org.junit.Before;
 import org.junit.Test;

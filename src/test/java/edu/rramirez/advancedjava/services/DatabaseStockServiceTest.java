@@ -1,6 +1,6 @@
-package com.origamisoftware.teach.advanced.services;
+package edu.rramirez.advancedjava.services;
 
-import com.origamisoftware.teach.advanced.model.StockQuote;
+import edu.rramirez.advancedjava.model.StockQuote;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

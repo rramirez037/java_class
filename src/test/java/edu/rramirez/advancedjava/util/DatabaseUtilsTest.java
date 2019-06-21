@@ -1,4 +1,4 @@
-package com.origamisoftware.teach.advanced.util;
+package edu.rramirez.advancedjava.util;
 
 import org.junit.Test;
 

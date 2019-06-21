@@ -1,9 +1,9 @@
-package com.origamisoftware.teach.advanced.apps.stockquote;
+package edu.rramirez.advancedjava.apps.stockquote;
 
-import com.origamisoftware.teach.advanced.model.StockQuery;
-import com.origamisoftware.teach.advanced.model.StockQuote;
-import com.origamisoftware.teach.advanced.services.StockService;
-import com.origamisoftware.teach.advanced.services.StockServiceException;
+import edu.rramirez.advancedjava.model.StockQuery;
+import edu.rramirez.advancedjava.model.StockQuote;
+import edu.rramirez.advancedjava.services.StockService;
+import edu.rramirez.advancedjava.services.StockServiceException;
 import org.junit.Before;
 import org.junit.Test;
 
