@@ -35,7 +35,7 @@ public class BasicStockQuoteApplicationTest {
     @Test
     public void testValidConstruction() {
         basicStockQuoteApplication = new BasicStockQuoteApplication(stockServiceMock);
-        assertNotNull("Basic construction works");
+        assertNotNull("Basic construction works", basicStockQuoteApplication);
     }
 
     @Test

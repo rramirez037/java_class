@@ -56,11 +56,9 @@ public class StockQuote extends StockData {
 
     @Override
     public String toString() {
+    	
         String dateString = simpleDateFormat.format(date);
-        return "StockQuote{" +
-                "price=" + price +
-                ", date=" + dateString +
-                ", symbol='" + symbol + '\'' +
-                '}';
+        
+        return "StockQuote{price=" + price + ", date=" + dateString + ", symbol='" + symbol + '\'' + '}';
     }
 }

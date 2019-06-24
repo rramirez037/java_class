@@ -77,7 +77,7 @@ public class BasicStockQuoteApplication {
 
         stringBuilder.append("Stock quotes for: " + stockQuery.getSymbol() + "\n");
         for (StockQuote stockQuote : stockQuotes) {
-            stringBuilder.append(stockQuote.toString());
+            stringBuilder.append(stockQuote.toString() + "\n");
         }
 
         return stringBuilder.toString();
@@ -124,12 +124,14 @@ public class BasicStockQuoteApplication {
         }
         try {
 
-        	System.out.println("inside the try");
+ 
             StockQuery stockQuery = new StockQuery(args[0], args[1], args[2]);
             StockService stockService = StockServiceFactory.getInstance();
             BasicStockQuoteApplication basicStockQuoteApplication =
                     new BasicStockQuoteApplication(stockService);
-            basicStockQuoteApplication.displayStockQuotes(stockQuery);
+            String output = basicStockQuoteApplication.displayStockQuotes(stockQuery);
+            
+            System.out.println(output);
 
         } catch (ParseException e) {
             exitStatus = ProgramTerminationStatusEnum.ABNORMAL;
