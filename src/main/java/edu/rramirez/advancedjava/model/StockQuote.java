@@ -3,9 +3,15 @@ package edu.rramirez.advancedjava.model;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Column;
+
 /**
  * A container class that contains stock data.
  */
+@Entity
+@Table (name="quotes")
 public class StockQuote extends StockData {
 
     private BigDecimal price;
@@ -27,8 +33,9 @@ public class StockQuote extends StockData {
     }
 
     /**
-     * @return Get the share price for the given date.
+     * @return the stock price
      */
+    @Column (name = "price", nullable = false, insertable = true, updatable = true)
     public BigDecimal getPrice() {
         return price;
     }
@@ -36,6 +43,7 @@ public class StockQuote extends StockData {
     /**
      * @return The date of the share price
      */
+    @Column (name = "time", nullable = false, insertable = true, updatable = true)
     public Date getDate() {
         return date;
     }
@@ -43,15 +51,9 @@ public class StockQuote extends StockData {
     /**
      * @return The stock symbol.
      */
+    @Column (name = "symbol", nullable = false, insertable = true, updatable = true)
     public String getSymbol() {
         return symbol;
-    }
-    
-    /**
-     * @return the stock price
-     */
-    public BigDecimal getStockPrice() {
-    	return price;
     }
 
     @Override
