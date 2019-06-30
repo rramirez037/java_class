@@ -4,7 +4,7 @@ import edu.rramirez.advancedjava.model.StockQuery;
 import edu.rramirez.advancedjava.model.StockQuote;
 import edu.rramirez.advancedjava.services.StockService;
 import edu.rramirez.advancedjava.services.StockServiceException;
-import edu.rramirez.advancedjava.services.StockServiceFactory;
+import edu.rramirez.advancedjava.services.ServiceFactory;
 
 import java.text.ParseException;
 import java.util.List;
@@ -126,7 +126,7 @@ public class BasicStockQuoteApplication {
 
  
             StockQuery stockQuery = new StockQuery(args[0], args[1], args[2]);
-            StockService stockService = StockServiceFactory.getInstance();
+            StockService stockService = ServiceFactory.getStockServiceInstance();
             BasicStockQuoteApplication basicStockQuoteApplication =
                     new BasicStockQuoteApplication(stockService);
             String output = basicStockQuoteApplication.displayStockQuotes(stockQuery);

@@ -10,16 +10,16 @@
         <!-- the root of their class path with appropriate production values. -->
 
         <!-- Tug database connection URL and credentials -->
-        <property name="connection.url">jdbc:mysql://localhost:3306/activities</property>
-        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/stocks?useSSL=false</property>
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 
         <property name="hibernate.connection.username">monty</property>
         <property name="hibernate.connection.password">some_pass</property>
 
-        <mapping class="edu.rramirez.advancedjava.model.StockQuote"/>
+        <mapping class="edu.rramirez.advancedjava.model.PersonStock"/>
         <mapping class="edu.rramirez.advancedjava.model.Person"/>
-        <mapping class="edu.rramirez.advancedjava.model.StockOfInterest"/>
+        <mapping class="edu.rramirez.advancedjava.model.StockCompany"/>
 
 
     </session-factory>
