@@ -2,7 +2,7 @@ package edu.rramirez.advancedjava.services;
 
 
 import edu.rramirez.advancedjava.model.Person;
-import edu.rramirez.advancedjava.model.StockCompany;
+import edu.rramirez.advancedjava.model.PersonStock;
 import java.util.List;
 
 /**
@@ -35,6 +35,6 @@ public interface PersonService {
      * If this happens, trying the service may work, depending on the actual cause of the
      * error.
 	 */
-	List<StockCompany> getStock(Person person) throws PersonServiceException;
+	List<PersonStock> getStock(Person person) throws PersonServiceException;
 	
 }

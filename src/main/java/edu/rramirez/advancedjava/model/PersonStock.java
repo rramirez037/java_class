@@ -14,7 +14,7 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table (name = "person_stock", catalog = "activities")
+@Table (name = "person_stock", catalog = "stocks")
 public class PersonStock {
 	
 	private int id;
@@ -119,7 +119,7 @@ public class PersonStock {
 
     @Override
     public String toString() {
-        return "PersonHobby{" +
+        return "PersonStock{" +
                 "id=" + id +
                 ", person=" + person +
                 ", stock=" + stock +

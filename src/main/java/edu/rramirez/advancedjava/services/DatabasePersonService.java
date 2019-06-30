@@ -1,7 +1,6 @@
 package edu.rramirez.advancedjava.services;
 
 import edu.rramirez.advancedjava.model.Person;
-import edu.rramirez.advancedjava.model.StockCompany;
 import edu.rramirez.advancedjava.model.PersonStock;
 import edu.rramirez.advancedjava.util.DatabaseUtils;
 import org.hibernate.Criteria;
@@ -66,10 +65,10 @@ public class DatabasePersonService implements PersonService {
      */
     @Override
     @SuppressWarnings("unchecked")
-    public List<StockCompany> getStock(Person person) throws PersonServiceException{
+    public List<PersonStock> getStock(Person person) throws PersonServiceException{
     	
     	Session session = DatabaseUtils.getSessionFactory().openSession();
-        List<StockCompany> listOfStock = new ArrayList<>();
+        List<PersonStock> listOfStock = new ArrayList<>();
         Transaction transaction = null;
         
         try {
@@ -84,12 +83,14 @@ public class DatabasePersonService implements PersonService {
              * to suppress them - in almost all other cases they should be fixed not suppressed
              */
             
+            listOfStock = criteria.list();
             //returnValue = criteria.list();
-            List<PersonStock> list = criteria.list();
+            //List<PersonStock> list = criteria.list();
             
-            for(PersonStock stock : list) {
-            	listOfStock.add(stock.getStock());
-            }
+           // for(PersonStock stock : list) {
+            	
+           // 	listOfStock.add(stock.getStock());
+          //  }
             
             transaction.commit();
 

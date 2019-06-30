@@ -20,6 +20,11 @@ public class StockCompany {
 	private String name;
 	
 	/**
+	 * Empty constructor
+	 */
+	public StockCompany() {}
+	
+	/**
 	 * Constructor to initialize the instances
 	 * 
 	 * @param symbol the company symbol
@@ -27,7 +32,7 @@ public class StockCompany {
 	 */
 	public StockCompany(String symbol, String name) {
 		setSymbol(symbol);
-		setName(name);
+		setCompanyName(name);
 	}
 	
 	/**
@@ -45,7 +50,7 @@ public class StockCompany {
 	 * 
 	 * @param name
 	 */
-	public void setName(String name) {
+	public void setCompanyName(String name) {
 		this.name = name;
 	}
 	
@@ -68,7 +73,7 @@ public class StockCompany {
 	 */
 	@Basic
 	@Column ( name = "company_name", nullable = false, insertable = true, updatable = true)
-	public String getName() {
+	public String getCompanyName() {
 		return name;
 	}
 

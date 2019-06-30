@@ -20,7 +20,7 @@ import java.sql.SQLException;
  */
 public class DatabaseUtils {
 
-    public static final String initializationFile = "./src/main/sql/db_initialization.sql";
+    public static final String initializationFile = "./src/main/sql/stocks_db_initialization.sql";
 
     private static SessionFactory sessionFactory;
     private static Configuration configuration;
