@@ -1,55 +1,57 @@
 package edu.rramirez.advancedjava.model;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
-import org.apache.http.annotation.Immutable;
-
-import java.math.BigDecimal;
-
 /**
- * StockQuote class - is a container for information about a stock. This class
- * is immutable.
- *
- * @author Ramon Ramirez
+ * A container class that contains stock data.
  */
-@Immutable 
-public class StockQuote {
+public class StockQuote extends StockData {
 
-	private String stockSymbol;
-	private BigDecimal stockPrice;
-	private Date transactionDate;
+    private BigDecimal price;
+    private Date date;
+    private String symbol;
 
-	/**
-	 * Construct and initializes the instance fields
-	 * 
-	 * @param StockSymbol     the stock symbol of the company you want a quote for
-	 *                        e.g. APPL for APPLE.
-	 * @param StockPrice      the stock price for a given company (stock symbol).
-	 * @param transactionDate the date when the transaction took place.
-	 */
-	public StockQuote(String stockSymbol, BigDecimal stockPrice, Date transactionDate) {
+    /**
+     * Create a new instance of a StockQuote.
+     *
+     * @param price  the share price for the given date
+     * @param date   the date of the share price
+     * @param symbol the stock symbol.
+     */
+    public StockQuote(BigDecimal price, Date date, String symbol) {
+        super();
+        this.price = price;
+        this.date = date;
+        this.symbol = symbol;
+    }
 
-		this.stockSymbol = stockSymbol;
-		this.stockPrice = stockPrice;
-		this.transactionDate = transactionDate;
-	}
+    /**
+     * @return the stock price
+     */
+    public BigDecimal getPrice() {
+        return price;
+    }
 
-	public String getStockSymbol() {
-		return stockSymbol;
-	}
+    /**
+     * @return The date of the share price
+     */
+    public Date getDate() {
+        return date;
+    }
 
-	public BigDecimal getStockPrice() {
-		return stockPrice;
-	}
+    /**
+     * @return The stock symbol.
+     */
+    public String getSymbol() {
+        return symbol;
+    }
 
-	public Date getTransactionDate() {
-		return transactionDate;
-	}
-
-	@Override
-	public String toString() {
-
-		return "StockQuote{" + "stockSymbol='" + stockSymbol + '\'' + ", stockPrice=" + stockPrice
-				+ ", transactionDate=" + transactionDate + '}';
-	}
+    @Override
+    public String toString() {
+    	
+        String dateString = simpleDateFormat.format(date);
+        
+        return "StockQuote{price=" + price + ", date=" + dateString + ", symbol='" + symbol + '\'' + '}';
+    }
 }
