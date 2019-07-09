@@ -1,7 +1,8 @@
 package edu.rramirez.advancedjava.util;
 
 import com.ibatis.common.jdbc.ScriptRunner;
-import edu.rramirez.advancedjava.services.DatabasePersonService;
+import edu.rramirez.advancedjava.services.DatabaseService;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
@@ -31,7 +32,7 @@ public class DatabaseUtils {
     public static SessionFactory getSessionFactory() {
 
         // singleton pattern
-        synchronized (DatabasePersonService.class) {
+        synchronized (DatabaseService.class) {
             if (sessionFactory == null) {
 
                 Configuration configuration = getConfiguration();
@@ -60,6 +61,7 @@ public class DatabaseUtils {
                 configuration.configure("hibernate.cfg.xml");
             }
         }
+        
         return configuration;
     }
 

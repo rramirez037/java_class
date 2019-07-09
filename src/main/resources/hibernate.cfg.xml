@@ -20,6 +20,7 @@
         <mapping class="edu.rramirez.advancedjava.model.PersonStock"/>
         <mapping class="edu.rramirez.advancedjava.model.Person"/>
         <mapping class="edu.rramirez.advancedjava.model.StockCompany"/>
+        <mapping class="edu.rramirez.advancedjava.xml.Stock"/>
 
 
     </session-factory>

@@ -1,15 +1,7 @@
 package edu.rramirez.advancedjava.services;
 
-import edu.rramirez.advancedjava.model.StockQuote;
-
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-
 /**
- * A factory that returns a <CODE>StockService</CODE> instance.
+ * A factory that returns a <CODE>StockService || PersonService || XMLService</CODE> instance.
  */
 public class ServiceFactory {
 
@@ -23,10 +15,22 @@ public class ServiceFactory {
      * @return get a <CODE>StockService</CODE> instance
      */
 	public static StockService getStockServiceInstance() {
-		return new DatabaseStockService();
+		return new DatabaseService();
 	}
 	
+	/**
+    *
+    * @return get a <CODE>PersonService</CODE> instance
+    */
 	public static PersonService getPersonServiceInstance() {
-		return new DatabasePersonService();
+		return new DatabaseService();
+	}
+	
+	/**
+    *
+    * @return get a <CODE>XMLService</CODE> instance
+    */
+	public static XMLService getXMLServiceInstance() {
+		return new DatabaseService();
 	}
 }
