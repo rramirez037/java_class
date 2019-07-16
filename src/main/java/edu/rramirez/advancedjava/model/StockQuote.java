@@ -13,8 +13,6 @@ import javax.persistence.Table;
 /**
  * A container class that contains stock data.
  */
-@Entity
-@Table (name = "quotes", catalog = "stocks")
 public class StockQuote extends StockData {
 
     private BigDecimal price;
@@ -38,8 +36,6 @@ public class StockQuote extends StockData {
     /**
      * @return the stock price
      */
-    @Basic
-    @Column(name = "price", nullable = false, insertable = true, updatable = true, length = 256)
     public BigDecimal getPrice() {
         return price;
     }
@@ -47,8 +43,6 @@ public class StockQuote extends StockData {
     /**
      * @return The date of the share price
      */
-    @Basic
-    @Column(name = "date", nullable = false, insertable = true, updatable = true, length = 256)
     public Date getDate() {
         return date;
     }
@@ -56,8 +50,6 @@ public class StockQuote extends StockData {
     /**
      * @return The stock symbol.
      */
-    @Basic
-    @Column(name = "symbol", nullable = false, insertable = true, updatable = true, length = 256)
     public String getSymbol() {
         return symbol;
     }

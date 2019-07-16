@@ -20,6 +20,7 @@ public abstract class StockData {
      */
     public StockData() {
         simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        simpleDateFormat.setLenient(false);
     }
 
 }
