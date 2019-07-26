@@ -9,6 +9,7 @@ import java.util.List;
 import yahoofinance.Stock;
 import yahoofinance.YahooFinance;
 import yahoofinance.histquotes.HistoricalQuote;
+import yahoofinance.histquotes.Interval;
 import edu.rramirez.advancedjava.model.StockQuote;
 
 /**
@@ -76,6 +77,56 @@ public class StockAdapterService implements StockService{
 		    Date date;
 		
 		    Stock stock = YahooFinance.get( symbol, from, until );
+			 
+			for( HistoricalQuote interator : stock.getHistory() ){
+			
+			    price = interator.getClose();
+				date =  interator.getDate().getTime();
+				
+				stockQuotes.add( new StockQuote( price, date, symbol ) );
+			}
+		
+		}catch( java.io.IOException e){
+		
+		    throw new StockServiceException( this.getClass() + " : " + e.getMessage(), e );
+		
+		}
+	
+	    return stockQuotes;
+	}
+    
+    /**
+     * Get a historical list of stock quotes for the provide symbol
+     *
+     * @param symbol the stock symbol to search for
+     * @param from   the date of the first stock quote
+     * @param until  the date of the last stock quote
+     * @param interv how often the quoted will be feed it
+     * @return a list of StockQuote instances
+     * @throws   StockServiceException if using the service generates an exception.
+     * If this happens, trying the service may work, depending on the actual cause of the
+     * error.
+     */
+	public List<StockQuote> getQuote( String symbol, Calendar from, Calendar until, String interv ) 
+			throws StockServiceException{
+	
+	    List<StockQuote> stockQuotes = new ArrayList<StockQuote>();
+	    Interval interval;
+	    
+	    if( interv.equals("daily")) {
+	    	interval = Interval.DAILY;
+	    }else if( interv.equals("weekly")) {
+	    	interval = Interval.WEEKLY;
+	    }else {
+	    	interval = Interval.MONTHLY;
+	    }
+	    
+		try{
+		
+		    BigDecimal price;
+		    Date date;
+		
+		    Stock stock = YahooFinance.get( symbol, from, until, interval );
 			 
 			for( HistoricalQuote interator : stock.getHistory() ){
 			

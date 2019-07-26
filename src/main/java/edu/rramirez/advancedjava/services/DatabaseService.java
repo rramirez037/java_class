@@ -124,6 +124,13 @@ public class DatabaseService implements StockService, PersonService, XMLService 
         return stockQuotes;
     }
     
+    @Override
+	public List<StockQuote> getQuote(String symbol, Calendar from, Calendar until, String inteval)
+			throws StockServiceException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+    
     /**
      * Get a list of all people
      *
@@ -241,6 +248,5 @@ public class DatabaseService implements StockService, PersonService, XMLService 
 
 		session.close();
 	}
-	
 
 }
