@@ -62,7 +62,6 @@ public class StockSearchServlet extends HttpServlet {
 
 		/*
 		 * forward the data to the stockquoteResult JSP page
-		 *
 		 */
 		ServletContext servletContext = getServletContext();
 		RequestDispatcher dispatcher = servletContext.getRequestDispatcher("/stockquoteResult.jsp");

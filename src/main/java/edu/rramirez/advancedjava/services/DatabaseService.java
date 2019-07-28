@@ -24,6 +24,13 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
+/**
+ * This class determines the type of methods that are require depending of the
+ * service being ask for.
+ * 
+ * @author Ramon Ramirez
+ *
+ */
 public class DatabaseService implements StockService, PersonService, XMLService {
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss");
@@ -95,8 +102,10 @@ public class DatabaseService implements StockService, PersonService, XMLService 
             Connection connection = DatabaseUtils.getConnection();
             Statement statement = connection.createStatement();
             
-            /** This query will return the stock quotes in an between sqlFrom to sqlUntil 
-                for a given stock symbol */
+            /** 
+             * This query will return the stock quotes in an between sqlFrom to sqlUntil 
+             * for a given stock symbol 
+             */
             String queryString = "select * from quotes where time between '" + sqlFrom + "' " + 
                                  "and '" + sqlUntil + "' and symbol = '" + symbol + "' " +
             		             "order by time desc";
@@ -127,7 +136,7 @@ public class DatabaseService implements StockService, PersonService, XMLService 
     @Override
 	public List<StockQuote> getQuote(String symbol, Calendar from, Calendar until, String inteval)
 			throws StockServiceException {
-		// TODO Auto-generated method stub
+    	
 		return null;
 	}
     
@@ -194,13 +203,6 @@ public class DatabaseService implements StockService, PersonService, XMLService 
              */
             
             listOfStock = criteria.list();
-            //returnValue = criteria.list();
-            //List<PersonStock> list = criteria.list();
-            
-           // for(PersonStock stock : list) {
-            	
-           // 	listOfStock.add(stock.getStock());
-          //  }
             
             transaction.commit();
 

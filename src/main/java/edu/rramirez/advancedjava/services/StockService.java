@@ -8,6 +8,9 @@ import java.util.List;
 
 /**
  * This API describes how to get stock data from an external resource.
+ * 
+ * @author Ramon Ramirez
+ *
  */
 public interface StockService {
 

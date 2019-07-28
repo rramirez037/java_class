@@ -1,32 +1,31 @@
 package edu.rramirez.advancedjava.app;
 
-import edu.rramirez.advancedjava.model.StockQuery;
-import edu.rramirez.advancedjava.model.StockQuote;
-import edu.rramirez.advancedjava.services.StockService;
-import edu.rramirez.advancedjava.services.ServiceFactory;
-import edu.rramirez.advancedjava.services.StockServiceException;
-
 import java.text.ParseException;
 import java.util.List;
+
+import edu.rramirez.advancedjava.model.StockQuery;
+import edu.rramirez.advancedjava.model.StockQuote;
+import edu.rramirez.advancedjava.services.ServiceFactory;
+import edu.rramirez.advancedjava.services.StockService;
+import edu.rramirez.advancedjava.services.StockServiceException;
 
 /**
  * A simple application that shows the StockService in action.
  * This app is getting data from Yahoo finance web-service api
  * 
+ * @author Ramon Ramirez
+ *
  */
 public class BasicStockQuoteApp {
 
 	private StockService stockService;
 
-	// an example of how to use enum - not part of assignment 3 but useful for
-	// assignment 4
 	/**
 	 * An enumeration that indicates how the program terminates (ends)
 	 */
 	private enum ProgramTerminationStatusEnum {
 
-		// for now, we just have normal or abnormal but could more specific ones as
-		// needed.
+		// Available status of the program (Normal or Abnormal)
 		NORMAL(0), ABNORMAL(-1);
 
 		// when the program exits, this value will be reported to underlying OS
@@ -147,8 +146,6 @@ public class BasicStockQuoteApp {
 	 */
 
 	public static void main(String[] args) {
-
-		// be optimistic init to positive values
 
 		ProgramTerminationStatusEnum exitStatus = ProgramTerminationStatusEnum.NORMAL;
 

@@ -2,6 +2,8 @@ package edu.rramirez.advancedjava.services;
 
 /**
  * Used to signal a problem with the StockService.
+ * 
+ * @author Ramon Ramirez
  */
 public class StockServiceException extends Exception {
 
